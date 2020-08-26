@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место - заметки о путешествиях</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+    <header class="header">
+        <img src="./images/logo.svg" alt="Лого 'Место'" class="logo logo_place_header">
+    </header>
+    <main class="main">
+        <section class="profile">
+            <img src="./images/person.png" alt="Жак-Ив Кусто" class="profile__img">
+            <div class="profile__description">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button class="button button-edit interaction"><img src="./images/edit_button.svg"
+                        alt="Кнопка редактировать" class='edit-image'></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button class="button button-add button-add_place_profile interaction"><img src="./images/plus.svg"
+                    alt="Кнопка добавить"></button>
+        </section>
+        <section class="stack">
+            <ul class="list">
+                <li class='list__item'>
+                    <img src="./images/kirill-pershin-dom.png" alt="Карачаевск" class="list__image">
+                    <div class='list__item-description'>
+                        <h2 class="list__item-title">Карачаевск</h2>
+                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
+                                alt="Кнопка нравится"></button>
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <img src="./images/kirill-pershin-nebo.png" alt="Гора Эльбрус" class="list__image">
+                    <div class='list__item-description'>
+                        <h2 class="list__item-title">Гора Эльбрус</h2>
+                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
+                                alt="Кнопка нравится"></button>
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <img src="./images/kirill-pershin-gori.png" alt="Карачаевск" class="list__image">
+                    <div class='list__item-description'>
+                        <h2 class="list__item-title">Карачаево-Черкесия</h2>
+                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
+                                alt="Кнопка нравится"></button>
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <img src="./images/kirill-pershin-gori.png" alt="Карачаевск" class="list__image">
+                    <div class='list__item-description'>
+                        <h2 class="list__item-title">Карачаево-Черкесияgvygvyvyvyv</h2>
+                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
+                                alt="Кнопка нравится"></button>
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <img src="./images/kirill-pershin-gori.png" alt="Карачаевск" class="list__image">
+                    <div class='list__item-description'>
+                        <h2 class="list__item-title">Карачаево-Черкесияgvygvyvyvyv</h2>
+                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
+                                alt="Кнопка нравится"></button>
+                    </div>
+                </li>
+                <li class='list__item'>
+                    <img src="./images/kirill-pershin-gori.png" alt="Карачаево-Черкесия" class="list__image">
+                    <div class='list__item-description'>
+                        <h2 class="list__item-title">Карачаево-Черкесия</h2>
+                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
+                                alt="Кнопка нравится"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <div class="popup popup_opened">
+            <div class="popup__container">
+                <img src="./images/plus.svg" alt="Кнопка закрыть" class="popup__close-img">
+                <p class="popup__title">Редактировать профиль</p>
+                <input type="text" placeholder="Имя" class="input__text input__text_profile_title">
+                <input type="text" placeholder="Профессия" class="input__text input__text_profile_subtitle">
+                <button class="input__btn input__btn_action_mofify">
+                    Сохранить
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p class="copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+
+</body>
+
+</html>
