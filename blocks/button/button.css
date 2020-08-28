@@ -1,0 +1,9 @@
+.button {
+    padding: 0;
+    background-color: #000;
+    border-width: 0;
+}
+
+.button:focus {
+    outline: none;
+}

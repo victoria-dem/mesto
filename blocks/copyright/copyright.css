@@ -1,0 +1,12 @@
+.copyright {
+    color: #545454;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.22;
+}
+
+@media screen and (max-width: 320px) {
+    .copyright {
+        font-size: 14px;
+    }
+}

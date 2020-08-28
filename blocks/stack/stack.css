@@ -1,0 +1,9 @@
+.stack {
+    padding-top: 38px;
+}
+
+@media screen and (max-width: 320px) {
+    .stack {
+        padding-top: 26px;
+    }
+}

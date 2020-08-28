@@ -16,82 +16,85 @@
         <section class="profile">
             <img src="./images/person.png" alt="Жак-Ив Кусто" class="profile__img">
             <div class="profile__description">
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <button class="button button-edit interaction"><img src="./images/edit_button.svg"
-                        alt="Кнопка редактировать" class='edit-image'></button>
-                <p class="profile__subtitle">Исследователь океана</p>
+                <div class="profile__unit">
+                    <h1 class="profile__title long-text">Жак-Ив Кусто</h1>
+                    <button class="button button-edit interaction" aria-label="Кнопка редактировать"></button>
+                </div>
+                <p class="profile__subtitle long-text">Исследователь океана</p>
             </div>
-            <button class="button button-add button-add_place_profile interaction"><img src="./images/plus.svg"
-                    alt="Кнопка добавить"></button>
+            <button class="button button-add button-add_place_profile interaction"
+                aria-label="Кнопка добавить"></button>
         </section>
         <section class="stack">
             <ul class="list">
-                <li class='list__item'>
+                <li class="list__item">
                     <img src="./images/kirill-pershin-dom.png" alt="Карачаевск" class="list__image">
-                    <div class='list__item-description'>
-                        <h2 class="list__item-title">Карачаевск</h2>
-                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
-                                alt="Кнопка нравится"></button>
+                    <div class="list__item-description">
+                        <h2 class="list__item-title long-text">Карачаевск</h2>
+                        <button class="button button_theme_white button-like interaction"
+                            aria-label="Кнопка нравится"></button>
                     </div>
                 </li>
-                <li class='list__item'>
+                <li class="list__item">
                     <img src="./images/kirill-pershin-nebo.png" alt="Гора Эльбрус" class="list__image">
-                    <div class='list__item-description'>
-                        <h2 class="list__item-title">Гора Эльбрус</h2>
-                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
-                                alt="Кнопка нравится"></button>
+                    <div class="list__item-description">
+                        <h2 class="list__item-title long-text">Гора Эльбрус</h2>
+                        <button class="button button_theme_white button-like interaction"
+                            aria-label="Кнопка нравится"></button>
                     </div>
                 </li>
-                <li class='list__item'>
+                <li class="list__item">
                     <img src="./images/kirill-pershin-gori.png" alt="Карачаевск" class="list__image">
-                    <div class='list__item-description'>
-                        <h2 class="list__item-title">Карачаево-Черкесия</h2>
-                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
-                                alt="Кнопка нравится"></button>
+                    <div class="list__item-description">
+                        <h2 class="list__item-title long-text">Карачаево-Черкесия</h2>
+                        <button class="button button_theme_white button-like interaction"
+                            aria-label="Кнопка нравится"></button>
                     </div>
                 </li>
-                <li class='list__item'>
+                <li class="list__item">
+                    <img src="./images/kirill-pershin-nebo.png" alt="Гора Эльбрус" class="list__image">
+                    <div class="list__item-description">
+                        <h2 class="list__item-title long-text">Гора Эльбрус</h2>
+                        <button class="button button_theme_white button-like interaction"
+                            aria-label="Кнопка нравится"></button>
+                    </div>
+                </li>
+                <li class="list__item">
                     <img src="./images/kirill-pershin-gori.png" alt="Карачаевск" class="list__image">
-                    <div class='list__item-description'>
-                        <h2 class="list__item-title">Карачаево-Черкесияgvygvyvyvyv</h2>
-                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
-                                alt="Кнопка нравится"></button>
+                    <div class="list__item-description">
+                        <h2 class="list__item-title long-text">Карачаево-Черкесия</h2>
+                        <button class="button button_theme_white button-like interaction"
+                            aria-label="Кнопка нравится"></button>
                     </div>
                 </li>
-                <li class='list__item'>
-                    <img src="./images/kirill-pershin-gori.png" alt="Карачаевск" class="list__image">
-                    <div class='list__item-description'>
-                        <h2 class="list__item-title">Карачаево-Черкесияgvygvyvyvyv</h2>
-                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
-                                alt="Кнопка нравится"></button>
-                    </div>
-                </li>
-                <li class='list__item'>
-                    <img src="./images/kirill-pershin-gori.png" alt="Карачаево-Черкесия" class="list__image">
-                    <div class='list__item-description'>
-                        <h2 class="list__item-title">Карачаево-Черкесия</h2>
-                        <button class="button button_theme_white button-like interaction"><img src="./images/like.svg"
-                                alt="Кнопка нравится"></button>
+                <li class="list__item">
+                    <img src="./images/kirill-pershin-dom.png" alt="Карачаевск" class="list__image">
+                    <div class="list__item-description">
+                        <h2 class="list__item-title long-text">Карачаевск</h2>
+                        <button class="button button_theme_white button-like interaction"
+                            aria-label="Кнопка нравится"></button>
                     </div>
                 </li>
             </ul>
         </section>
-        <div class="popup popup_opened">
+        <div class="popup">
             <div class="popup__container">
-                <img src="./images/plus.svg" alt="Кнопка закрыть" class="popup__close-img">
+                <button class="popup__close-btn interaction" aria-label="Кнопка закрыть"></button>
                 <p class="popup__title">Редактировать профиль</p>
-                <input type="text" placeholder="Имя" class="input__text input__text_profile_title">
-                <input type="text" placeholder="Профессия" class="input__text input__text_profile_subtitle">
-                <button class="input__btn input__btn_action_mofify">
-                    Сохранить
-                </button>
+                <form class="input">
+                    <input type="text" placeholder="" class="input__text input__text_profile_title">
+                    <input type="text" placeholder="" class="input__text input__text_profile_subtitle">
+                    <button class="input__btn input__btn_action_mofify" type="submit">
+                        Сохранить
+                    </button>
+                </form>
             </div>
         </div>
     </main>
     <footer class="footer">
         <p class="copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-
+    <script src="./scripts/index.js" defer></script>
 </body>
 
 </html>

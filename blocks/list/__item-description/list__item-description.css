@@ -1,0 +1,5 @@
+.list__item-description {
+    padding: 25px 17px 31px 0;
+    display: flex;
+    justify-content: space-between;
+}
