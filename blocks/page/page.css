@@ -11,5 +11,7 @@
     min-width: 320px;
     line-height: 1;
     font-style: normal;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
