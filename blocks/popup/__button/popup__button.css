@@ -1,4 +1,4 @@
-.popup__close-btn {
+.popup__button {
     position: relative;
     align-self: flex-end;
     background-color: rgba(0, 0, 0, 0);
@@ -6,23 +6,23 @@
     width: 46px;
     height: 46px;
     background-image: url(../../../images/plus.svg);
-    margin-right: -76px;
-    margin-top: -73px;
+    right: -76px;
+    top: -73px;
     transform: rotate(45deg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.popup__close-btn:focus {
+.popup__button:focus {
     outline: none;
 }
 
 @media screen and (max-width: 540px) {
-    .popup__close-btn {
+    .popup__button {
         width: 36px;
         height: 36px;
-        margin-right: -66px;
-        margin-top: -63px;
+        right: -66px;
+        top: -63px;
     }
 }

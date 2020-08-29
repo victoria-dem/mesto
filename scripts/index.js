@@ -1,23 +1,19 @@
 let profile = document.querySelector(".profile");
-let editButton = profile.querySelector(".button-edit");
+let editButton = profile.querySelector(".button_type_edit");
 let popup = document.querySelector(".popup");
-let nameInput = document.querySelector(".input__text_profile_title");
-let jobInput = document.querySelector(".input__text_profile_subtitle");
+let nameInput = popup.querySelector(".input__text_profile_title");
+let jobInput = popup.querySelector(".input__text_profile_subtitle");
+let closeButton = popup.querySelector(".popup__button");
+let formElement = popup.querySelector(".input");
+let nameProfile = profile.querySelector(".profile__title");
+let jobProfile = profile.querySelector(".profile__subtitle");
 
 const popupToggle = () => popup.classList.toggle("popup_opened");
 
 const formSubmitHandler = (evt) => {
   evt.preventDefault();
-  let name = nameInput.value;
-  let job = jobInput.value;
-  let nameModified = profile.querySelector(".profile__title");
-  let jobModified = profile.querySelector(".profile__subtitle");
-  if (name !== "") {
-    nameModified.textContent = name;
-  }
-  if (job !== "") {
-    jobModified.textContent = job;
-  }
+  nameProfile.textContent = nameInput.value;
+  jobProfile.textContent = jobInput.value;
   popupToggle();
 };
 
@@ -28,17 +24,14 @@ const popupCloseOnOverlay = (event) => {
   popupToggle();
 };
 
-const editProfile = () => {
+const openPopup = () => {
   popupToggle();
-  let closeButton = popup.querySelector(".popup__close-btn");
-  let formElement = document.querySelector(".input");
-  let nameProfile = profile.querySelector(".profile__title");
-  let jobProfile = profile.querySelector(".profile__subtitle");
-  nameInput.placeholder = nameProfile.textContent;
-  jobInput.placeholder = jobProfile.textContent;
-  formElement.addEventListener("submit", formSubmitHandler);
-  closeButton.addEventListener("click", popupToggle);
-  popup.addEventListener("click", popupCloseOnOverlay);
+  nameInput.value = nameProfile.textContent;
+  jobInput.value = jobProfile.textContent;
+
 };
 
-editButton.addEventListener("click", editProfile);
+editButton.addEventListener("click", openPopup);
+formElement.addEventListener("submit", formSubmitHandler);
+closeButton.addEventListener("click", popupToggle);
+popup.addEventListener("click", popupCloseOnOverlay);

@@ -1,4 +1,4 @@
-.input__btn {
+.button_type_input {
     max-width: 358px;
     height: 50px;
     background-color: #000;
@@ -7,8 +7,6 @@
     margin-top: 48px;
 }
 
-.input__btn:hover {
-    cursor: pointer;
+.button_type_input:hover {
     opacity: 0.8;
-    transition: opacity 0.4s ease-out;
 }

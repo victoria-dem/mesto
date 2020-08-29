@@ -1,4 +1,4 @@
-.list {
+.stack__list {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 282px);
@@ -7,14 +7,14 @@
 }
 
 @media screen and (max-width: 920px) {
-    .list {
+    .stack__list {
         grid-template-columns: repeat(2, 282px);
         justify-content: center;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .list {
+    .stack__list {
         grid-template-columns: repeat(1, 282px);
     }
 }
