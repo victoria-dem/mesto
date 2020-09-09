@@ -1,0 +1,27 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Project Mesto ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint ./scripts",
+    "eslint": "eslint ./scripts --fix"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoria-dem/mesto.git"
+  },
+  "author": "Viktoriya Dementyeva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoria-dem/mesto/issues"
+  },
+  "homepage": "https://github.com/victoria-dem/mesto#readme",
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}

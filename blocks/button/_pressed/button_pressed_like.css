@@ -1,0 +1,8 @@
+.button_pressed_like {
+    width: 21px;
+    height: 18px;
+    background-image: url('../../../images/like_button_pressed.svg');
+    background-position: center;
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}

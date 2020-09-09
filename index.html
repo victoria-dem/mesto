@@ -18,71 +18,21 @@
             <div class="profile__description">
                 <div class="profile__unit">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <button class="button button_type_edit" aria-label="Кнопка редактировать"
-                        type="button"></button>
+                    <button class="button button_type_edit" aria-label="Кнопка редактировать" type="button"></button>
                 </div>
                 <p class="profile__subtitle ">Исследователь океана</p>
             </div>
-            <button class="button button_type_add profile__button" aria-label="Кнопка добавить"
-                type="button"></button>
+            <button class="button button_type_add profile__button" aria-label="Кнопка добавить" type="button"></button>
         </section>
         <section class="stack">
             <ul class="stack__list">
-                <li class="card">
-                    <img src="./images/kirill-pershin-dom.jpg" alt="Карачаевск" class="card__image">
-                    <div class="card__item-description">
-                        <h2 class="card__item-title">Карачаевск</h2>
-                        <button class="button button_type_like" aria-label="Кнопка нравится"
-                            type="button"></button>
-                    </div>
-                </li>
-            <li class="card">
-                    <img src="./images/kirill-pershin-nebo.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__item-description">
-                        <h2 class="card__item-title">Гора Эльбрус</h2>
-                        <button class="button button_type_like" aria-label="Кнопка нравится"
-                            type="button"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/kirill-pershin-gori.jpg" alt="Карачаевск" class="card__image">
-                    <div class="card__item-description">
-                        <h2 class="card__item-title">Карачаево-Черкесия</h2>
-                        <button class="button button_type_like" aria-label="Кнопка нравится"
-                            type="button"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/kirill-pershin-nebo.jpg" alt="Гора Эльбрус" class="card__image">
-                    <div class="card__item-description">
-                        <h2 class="card__item-title">Гора Эльбрус</h2>
-                        <button class="button button_type_like" aria-label="Кнопка нравится"
-                            type="button"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/kirill-pershin-gori.jpg" alt="Карачаевск" class="card__image">
-                    <div class="card__item-description">
-                        <h2 class="card__item-title">Карачаево-Черкесия</h2>
-                        <button class="button button_type_like" aria-label="Кнопка нравится"
-                            type="button"></button>
-                    </div>
-                </li>
-                <li class="card">
-                    <img src="./images/kirill-pershin-dom.jpg" alt="Карачаевск" class="card__image">
-                    <div class="card__item-description">
-                        <h2 class="card__item-title">Карачаевск</h2>
-                        <button class="button button_type_like" aria-label="Кнопка нравится"
-                            type="button"></button>
-                    </div>
-                </li>
             </ul>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_type_edit">
         <div class="popup__container">
             <button class="popup__button button" aria-label="Кнопка закрыть" type="button"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
@@ -97,6 +47,38 @@
             </form>
         </div>
     </div>
+    <div class="popup popup_type_add">
+        <div class="popup__container">
+            <button class="popup__button button" aria-label="Кнопка закрыть" type="button"></button>
+            <h3 class="popup__title">Новое место</h3>
+            <form class="input" name="place">
+                <input type="text" placeholder="Название" class="input__text input__text_profile_title"
+                    name="place_title" required>
+                <input type="text" placeholder="Ссылка на картинку" class="input__text input__text_profile_subtitle"
+                    name="place_link" required>
+                <button class="button button_type_input input__button" type="submit">
+                    Создать
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_background_black popup_opened">
+        <div class="picture">
+            <button class="picture__button button" aria-label="Кнопка закрыть" type="button"></button>
+            <img class="picture__img" src="../../images/larix-lake.jpg">
+            <h4 class="popup__caption">Озеро Ларикс</h4>
+        </div>
+    </div>
+    <template id="card">
+        <li class="card">
+            <img class="card__image">
+            <button class="button button_type_delete" aria-label="Кнопка удалить" type="button"></button>
+            <div class="card__item-description">
+                <h2 class="card__item-title"></h2>
+                <button class="button button_type_like" aria-label="Кнопка нравится" type="button"></button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/index.js" defer></script>
 </body>
 
