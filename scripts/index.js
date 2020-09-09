@@ -17,29 +17,29 @@ const cardTemplate = document.querySelector("#card").content;
 const cardList = document.querySelector(".stack__list");
 const initialCards = [
   {
-    name: 'Озеро "Скалистый остров"',
-    link: "../images/rock-isle-lake.jpg",
+      name: 'Архыз',
+      link:   'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
   {
-    name: 'Озеро "Лук"',
-    link: "../images/bow-lake.jpg",
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
   },
   {
-    name: "Сады Батчардов",
-    link: "../images/batchard-garden.jpg",
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
   },
   {
-    name: "Озеро Ларикс",
-    link: "../images/larix-lake.jpg",
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-    name: "Ледник Атабаска",
-    link: "../images/lednik-atabaska.jpg",
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
-    name: "Скалистые горы",
-    link: "../images/rocky-mountains.jpg",
-  },
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
 ];
 
 const createCardTemplate = (title, link) => {
