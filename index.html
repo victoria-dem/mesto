@@ -62,16 +62,19 @@
             </form>
         </div>
     </div>
-    <div class="popup popup_background_black popup_opened">
-        <div class="picture">
-            <button class="picture__button button" aria-label="Кнопка закрыть" type="button"></button>
-            <img class="picture__img" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg">
-            <h4 class="popup__caption">Озеро Ларикс</h4>
+    <div class="popup popup_type_picture">
+        <div class="popup__container popup__container_form_picture">
+            <button class="popup__button_form_picture popup__button button" aria-label="Кнопка закрыть"
+                type="button"></button>
+            <img class="popup__picture">
+            <h3 class="popup__picture-caption"></h3>
         </div>
     </div>
     <template id="card">
         <li class="card">
-            <img class="card__image">
+            <div class="card__image-container">
+                <img class="card__image">
+            </div>
             <button class="button button_type_delete" aria-label="Кнопка удалить" type="button"></button>
             <div class="card__item-description">
                 <h2 class="card__item-title"></h2>

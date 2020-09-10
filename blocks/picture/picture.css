@@ -1,16 +1,10 @@
 .picture {
-    margin: auto;
-    display: flex;
-    padding: 0;
-    flex-direction: column;
-    max-width: 75vw;
-    max-height: 75vh;
-    /* object-fit: cover; */
-}
-
-@media screen and (max-width: 320px) {
-    .picture {
-        max-width: 240px;
-        max-height: 240px;
-    }
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0);
 }

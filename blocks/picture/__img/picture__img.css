@@ -1,5 +1,8 @@
 .picture__img {
-    object-fit: cover;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: 75vw;
+    max-height: 75vh;
 }
-
-

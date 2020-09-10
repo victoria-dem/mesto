@@ -1,7 +1,7 @@
-.popup__caption {
+.popup__picture-caption {
     color: #fff;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.25;
-    margin: 0;
+    margin: 10px 0 0;
 }
