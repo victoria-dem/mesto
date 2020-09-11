@@ -60,20 +60,6 @@ const initialCards = [
   },
 ];
 
-const displayCard = (card, index) => {
-  const cardElement = cardTemplate.cloneNode(true);
-  cardElement.querySelector('.card__item-title').textContent = card.name;
-  cardElement.querySelector('.card__image').src = card.link;
-  cardElement.querySelector('.card__image').alt = card.name;
-  cardElement.querySelector('.card').classList.add(index);
-  cardList.append(cardElement);
-};
-
-const displayAllCards = () => {
-  cardList.innerHTML = '';
-  initialCards.forEach(displayCard);
-};
-
 const togglePopupClass = (element) => element.classList.toggle('popup_opened');
 
 const handleLikeButton = (evt) => {
@@ -82,32 +68,15 @@ const handleLikeButton = (evt) => {
 };
 
 const deleteCard = (evt) => {
-  const indexCardArray = evt.target.parentNode.classList.value.match(/\d/);
-  const indexCard = indexCardArray[0];
-  initialCards.splice(indexCard, 1);
-  displayAllCards();
+  const removeItem = evt.target.closest('.card');
+  removeItem.remove();
 };
 
 const openPopupPicture = (evt) => {
-  popupPicture.classList.toggle('popup_opened');
+  togglePopupClass(popupPicture);
   popupPictureImg.src = evt.target.src;
+  popupPictureImg.alt = evt.target.alt;
   popupPictureCaption.textContent = evt.target.alt;
-};
-
-const handleListClick = (evt) => {
-  if (
-    evt.target.classList.contains('button_type_like')
-    || evt.target.classList.contains('button_pressed_like')
-  ) {
-    handleLikeButton(evt);
-    return;
-  }
-  if (evt.target.classList.contains('button_type_delete')) {
-    deleteCard(evt);
-  }
-  if (evt.target.classList.contains('card__image')) {
-    openPopupPicture(evt);
-  }
 };
 
 const submitFormEdit = (evt) => {
@@ -115,14 +84,6 @@ const submitFormEdit = (evt) => {
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
   togglePopupClass(popupEdit);
-};
-
-const submitFormAdd = (evt) => {
-  evt.preventDefault();
-  const newCard = { name: placeInput.value, link: linkInput.value };
-  initialCards.unshift(newCard);
-  displayAllCards();
-  togglePopupClass(popupAdd);
 };
 
 const closeOnOverlay = (element, evt) => {
@@ -144,7 +105,38 @@ const openPopupEdit = () => {
 
 const openPopupAdd = () => togglePopupClass(popupAdd);
 
-displayAllCards();
+const getCardElement = (card) => {
+  const cardElement = cardTemplate.cloneNode(true);
+  const likeButton = cardElement.querySelector('.button_type_like');
+  const deleteButton = cardElement.querySelector('.button_type_delete');
+  const pictureClick = cardElement.querySelector('.card__image');
+
+  cardElement.querySelector('.card__item-title').textContent = card.name;
+  cardElement.querySelector('.card__image').src = card.link;
+  cardElement.querySelector('.card__image').alt = card.name;
+
+  likeButton.addEventListener('click', handleLikeButton);
+  deleteButton.addEventListener('click', deleteCard);
+  pictureClick.addEventListener('click', openPopupPicture);
+  return cardElement;
+};
+
+const submitFormAdd = (evt) => {
+  evt.preventDefault();
+  const newCard = { name: placeInput.value, link: linkInput.value };
+  cardList.prepend(getCardElement(newCard));
+  togglePopupClass(popupAdd);
+};
+
+const renderCard = (etv) => {
+  cardList.append(getCardElement(etv));
+};
+
+const displayInitialCards = () => {
+  initialCards.forEach(renderCard);
+};
+
+displayInitialCards();
 
 editButton.addEventListener('click', openPopupEdit);
 formEdit.addEventListener('submit', submitFormEdit);
@@ -154,6 +146,5 @@ addButton.addEventListener('click', openPopupAdd);
 formAdd.addEventListener('submit', submitFormAdd);
 closeButtonAdd.addEventListener('click', closePopupAdd);
 popupAdd.addEventListener('click', closePopupAdd);
-cardList.addEventListener('click', handleListClick);
 closeButtonPopupPicture.addEventListener('click', closePopupPicture);
 popupPicture.addEventListener('click', closePopupPicture);

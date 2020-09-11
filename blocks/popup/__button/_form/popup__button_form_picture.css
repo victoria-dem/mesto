@@ -1,27 +1,16 @@
-.popup__button_form_picture{
+.popup__button_form_picture {
     position: absolute;
     margin-top: -45px;
-    margin-right: -45px; 
+    margin-right: -45px;
     right: auto;
     top: auto;
-
-
 }
 
-@media screen and (max-width: 548px) { 
+@media screen and (max-width: 548px) {
     .popup__button_form_picture {
         margin-top: -33px;
         margin-right: -33px;
         right: auto;
-        top: auto;   
+        top: auto;
     }
-} 
-
-/* .picture__button {
-    position: absolute;
-    /* align-self: flex-end; */
-    /* background-color: rgba(0, 0, 0, 0);
-    border: none;
-    width: 46px;
-    height: 46px; */
-   */
+}
