@@ -1,0 +1,11 @@
+.input__button_disabled {
+  background-color: transparent;
+  color: #000;
+  border: solid 1px;
+  opacity: 0.2;
+}
+.input__button_disabled:hover {
+  cursor: auto;
+  transition: none;
+  opacity: 0.2;
+}
