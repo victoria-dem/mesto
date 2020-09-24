@@ -30,14 +30,6 @@ const closeButtonPopupPicture = popupPicture.querySelector(
 
 const togglePopupClass = (element) => {
   element.classList.toggle("popup_opened");
-  const openedPopup = document.querySelector(".popup_opened");
-  if (openedPopup !== null) {
-    openedPopup.addEventListener("click", closeOnOverlay);
-    document.addEventListener("keydown", closeOnEsc);
-  } else {
-    document.removeEventListener("keydown", closeOnEsc);
-    openedPopup.removeEventListener("click", closeOnOverlay);
-  }
 };
 
 const handleLikeButton = (evt) => {
@@ -49,8 +41,14 @@ const deleteCard = (evt) => {
   removeItem.remove();
 };
 
+const setCloseListeners = (element) => {
+  element.addEventListener("click", closeOnOverlay);
+  document.addEventListener("keydown", closeOnEsc);
+};
+
 const openPopupPicture = (evt) => {
   togglePopupClass(popupPicture);
+  setCloseListeners(popupPicture);
   popupPictureImg.src = evt.target.src;
   popupPictureImg.alt = evt.target.alt;
   popupPictureCaption.textContent = evt.target.alt;
@@ -64,6 +62,7 @@ const isValidationPass = (evt) => {
 const closeOnEsc = (evt) => {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
+    document.removeEventListener("keydown", closeOnEsc);
     togglePopupClass(openedPopup);
   }
 };
@@ -77,26 +76,27 @@ const submitFormEdit = (evt) => {
   }
 };
 
-const closeOnOverlay = (element, evt) => {
+const closeOnOverlay = (evt) => {
   if (evt.target !== evt.currentTarget) {
     return;
   }
-  togglePopupClass(element);
-};
-
-const closePopup = (evt) => {
   const openedPopup = document.querySelector(".popup_opened");
+  openedPopup.removeEventListener("click", closeOnOverlay);
   togglePopupClass(openedPopup);
 };
 
 const openPopupEdit = () => {
   togglePopupClass(popupEdit);
+  setCloseListeners(popupEdit);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 };
 
 const openPopupAdd = () => {
   togglePopupClass(popupAdd);
+  setCloseListeners(popupAdd);
+  placeInput.value = "";
+  linkInput.value = "";
 };
 
 const getCardElement = (card) => {
@@ -135,9 +135,10 @@ initialCards.forEach(renderCard);
 
 editButton.addEventListener("click", openPopupEdit);
 formEdit.addEventListener("submit", submitFormEdit);
-closeButtonEdit.addEventListener("click", closePopup);
+closeButtonEdit.addEventListener("click", () => togglePopupClass(popupEdit));
 addButton.addEventListener("click", openPopupAdd);
 formAdd.addEventListener("submit", submitFormAdd);
-closeButtonAdd.addEventListener("click", closePopup);
-closeButtonPopupPicture.addEventListener("click", closePopup);
-popupPicture.addEventListener("click", closePopup);
+closeButtonAdd.addEventListener("click", () => togglePopupClass(popupAdd));
+closeButtonPopupPicture.addEventListener("click", () =>
+  togglePopupClass(popupPicture)
+);
