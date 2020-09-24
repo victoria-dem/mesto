@@ -30,6 +30,13 @@ const closeButtonPopupPicture = popupPicture.querySelector(
 
 const togglePopupClass = (element) => {
   element.classList.toggle("popup_opened");
+  if (element.classList.contains("popup_opened")) {
+    element.addEventListener("click", closeOnOverlay);
+    document.addEventListener("keydown", closeOnEsc);
+  } else {
+    document.removeEventListener("keydown", closeOnEsc);
+    element.removeEventListener("click", closeOnOverlay);
+  }
 };
 
 const handleLikeButton = (evt) => {
@@ -41,14 +48,8 @@ const deleteCard = (evt) => {
   removeItem.remove();
 };
 
-const setCloseListeners = (element) => {
-  element.addEventListener("click", closeOnOverlay);
-  document.addEventListener("keydown", closeOnEsc);
-};
-
 const openPopupPicture = (evt) => {
   togglePopupClass(popupPicture);
-  setCloseListeners(popupPicture);
   popupPictureImg.src = evt.target.src;
   popupPictureImg.alt = evt.target.alt;
   popupPictureCaption.textContent = evt.target.alt;
@@ -87,14 +88,12 @@ const closeOnOverlay = (evt) => {
 
 const openPopupEdit = () => {
   togglePopupClass(popupEdit);
-  setCloseListeners(popupEdit);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 };
 
 const openPopupAdd = () => {
   togglePopupClass(popupAdd);
-  setCloseListeners(popupAdd);
   placeInput.value = "";
   linkInput.value = "";
 };
