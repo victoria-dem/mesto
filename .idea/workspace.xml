@@ -20,18 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2acb1657-4792-4887-88ca-4942f6e7106f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/button/_type/button_type_input.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/button/_type/button_type_input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/input/__button/input__button.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/input/__button/input__button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/input/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/input/input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/popup/__button/popup__button.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button/popup__button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/popup/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/popup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/form/__text/form__text.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/button/_pressed/button_pressed_like.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/button/_pressed/button_pressed_like.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/card/__image/card__image.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/card/__image/card__image.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/input/__button/_disabled/input__button_disabled.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/form/__button/_disabled/form__button_disabled.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/input/__button/input__button.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/form/__button/form__button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/input/__error/input__error.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/form/__error/form__error.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/input/__text/_type/input__text_type_error.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/form/__text/_type/form__text_type_error.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/input/__text/input__text.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/input/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/form/form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/validate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +61,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Portfolio/Tutorforexam" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -101,7 +103,8 @@
       <updated>1599916459021</updated>
       <workItem from="1599916460518" duration="2212000" />
       <workItem from="1600090783179" duration="7441000" />
-      <workItem from="1600793727065" duration="48054000" />
+      <workItem from="1600793727065" duration="49227000" />
+      <workItem from="1600895072404" duration="12009000" />
     </task>
     <servers />
   </component>
@@ -118,6 +121,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="841" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600824898336">
@@ -128,10 +132,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="300" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper/0.0.1920.1040@0.0.1920.1040" timestamp="1600794442682" />
-    <state x="851" y="275" key="FileChooserDialogImpl" timestamp="1600197764269">
+    <state x="851" y="275" key="FileChooserDialogImpl" timestamp="1600913780360">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="851" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600197764269" />
+    <state x="851" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600913780360" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1600191053734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -45,11 +45,8 @@ const showInputError = (
   errorElement.classList.add(inputClasses.errorClass);
 };
 
-const hasInvalidInput = (inputList) => {
-  return inputList.some((elm) => {
-    return !elm.validity.valid;
-  });
-};
+const hasInvalidInput = (inputList) =>
+  inputList.some((elm) => !elm.validity.valid);
 
 const hideInputError = (formElement, inputElement, inputClasses) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -68,10 +65,10 @@ const enableValidation = (inputClasses) => {
 };
 
 enableValidation({
-  formSelector: ".input",
-  inputSelector: ".input__text",
-  submitButtonSelector: ".input__button",
-  inactiveButtonClass: "input__button_disabled",
-  inputErrorClass: "input__text_type_error",
-  errorClass: "input__error_visible",
+  formSelector: ".form",
+  inputSelector: ".form__text",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+  inputErrorClass: "form__text_type_error",
+  errorClass: "form__error_visible",
 });
