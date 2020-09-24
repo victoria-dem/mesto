@@ -63,7 +63,6 @@ const isValidationPass = (evt) => {
 const closeOnEsc = (evt) => {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
-    document.removeEventListener("keydown", closeOnEsc);
     togglePopupClass(openedPopup);
   }
 };
@@ -82,7 +81,6 @@ const closeOnOverlay = (evt) => {
     return;
   }
   const openedPopup = document.querySelector(".popup_opened");
-  openedPopup.removeEventListener("click", closeOnOverlay);
   togglePopupClass(openedPopup);
 };
 
@@ -94,6 +92,9 @@ const openPopupEdit = () => {
 
 const openPopupAdd = () => {
   togglePopupClass(popupAdd);
+  popupAdd
+    .querySelector(".form__button")
+    .classList.add("form__button_disabled");
   placeInput.value = "";
   linkInput.value = "";
 };
