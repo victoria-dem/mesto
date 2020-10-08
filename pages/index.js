@@ -23,6 +23,8 @@ const formAdd = popupAdd.querySelector(".form");
 const cardList = document.querySelector(".stack__list");
 // show big picture
 const popupPicture = document.querySelector(".popup_type_picture");
+const popupPictureImg = popupPicture.querySelector(".popup__picture");
+const popupPictureCaption = popupPicture.querySelector(".popup__picture-caption");
 const closeButtonPopupPicture = popupPicture.querySelector(
   ".popup__button_form_picture"
 );
@@ -92,6 +94,13 @@ const openPopupAdd = () => {
   linkInput.value = "";
 };
 
+const openPopupPicture = (ev) =>  {
+  togglePopupClass(popupPicture);
+  popupPictureImg.src = ev.target.src;
+  popupPictureImg.alt = ev.target.alt;
+  popupPictureCaption.textContent = ev.target.alt;
+};
+
 const submitFormAdd = (evt) => {
   evt.preventDefault();
   if (isValidationPass(evt)) {
@@ -106,7 +115,7 @@ const submitFormAdd = (evt) => {
 };
 
 const renderCard = (item) => {
-  const card = new Card(item, "#card", ".card");
+  const card = new Card(item, "#card", ".card",openPopupPicture);
   cardList.append(card.getCardElement());
 };
 
