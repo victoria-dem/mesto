@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2acb1657-4792-4887-88ca-4942f6e7106f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/formvalidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormValidator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +107,7 @@
       <workItem from="1601601956326" duration="1715000" />
       <workItem from="1602093135101" duration="53000" />
       <workItem from="1602093227880" duration="74000" />
-      <workItem from="1603155010741" duration="50133000" />
+      <workItem from="1603155010741" duration="51387000" />
     </task>
     <servers />
   </component>

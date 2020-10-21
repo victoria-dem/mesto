@@ -1,9 +1,4 @@
-import {
-  jobInput,
-  jobProfile,
-  nameInput,
-  nameProfile,
-} from "../utils/constants.js";
+import { jobProfile, nameProfile } from "../utils/constants.js";
 
 export default class UserInfo {
   constructor(data) {

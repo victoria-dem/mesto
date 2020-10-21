@@ -20,7 +20,6 @@ import {
 } from "../utils/constants.js";
 
 const submitFormEdit = (formValues) => {
-  console.log(formValues);
   const buttonSubmit = formEdit.querySelector(".form__button");
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
     user.setUserInfo(formValues.profile_title, formValues.profile_subtitle);
@@ -67,9 +66,11 @@ const formValidProfile = new FormValidator(formValidationClasses, formEdit);
 formValidProfile.enableValidation();
 
 const formValidAdd = new FormValidator(formValidationClasses, formAdd);
+
 formValidAdd.enableValidation();
 
 const openedPopupEdit = new PopupWithForm(".popup_type_edit", submitFormEdit);
+openedPopupEdit.setEventListeners();
 const user = new UserInfo({
   name: nameProfile.textContent,
   userJob: jobProfile.textContent,
@@ -77,13 +78,12 @@ const user = new UserInfo({
 
 editButton.addEventListener("click", () => {
   openedPopupEdit.openPopup();
-  openedPopupEdit.setEventListeners();
   nameInput.value = user.getUserInfo().userName;
   jobInput.value = user.getUserInfo().userJob;
 });
 
+const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
+openedPopupAdd.setEventListeners();
 addButton.addEventListener("click", () => {
-  const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
   openedPopupAdd.openPopup();
-  openedPopupAdd.setEventListeners();
 });
