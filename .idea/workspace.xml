@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2acb1657-4792-4887-88ca-4942f6e7106f" name="Default Changelist" comment="" />
+    <list default="true" id="2acb1657-4792-4887-88ca-4942f6e7106f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormValidator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PopupWithImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +117,7 @@
       <workItem from="1602093135101" duration="53000" />
       <workItem from="1602093227880" duration="74000" />
       <workItem from="1603155010741" duration="87610000" />
-      <workItem from="1603376318395" duration="2933000" />
+      <workItem from="1603376318395" duration="22309000" />
     </task>
     <servers />
   </component>
@@ -211,5 +221,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="908" y="102" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1600794624186" />
+    <state x="617" y="267" width="672" height="678" key="search.everywhere.popup" timestamp="1603474584842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="617" y="267" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603474584842" />
   </component>
 </project>

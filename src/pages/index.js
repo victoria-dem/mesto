@@ -17,6 +17,8 @@ import {
   formAdd,
   cardListSection,
   formValidationClasses,
+  popupPictureImg,
+  popupPictureCaption,
 } from "../utils/constants.js";
 
 const submitFormEdit = (formValues) => {
@@ -26,35 +28,44 @@ const submitFormEdit = (formValues) => {
   }
 };
 
+const handleCardClick = (name, imgLink) => {
+  openedPopupWithImage.open(
+    popupPictureImg,
+    popupPictureCaption,
+    name,
+    imgLink
+  );
+};
+
+const createCardElement = (name, link) => {
+  const newCard = new Card(
+    {
+      name,
+      link,
+    },
+    "#card",
+    ".card",
+    handleCardClick
+  );
+  return newCard.getCardElement();
+};
+
 const submitFormAdd = (formValue) => {
   const buttonSubmit = formAdd.querySelector(".form__button");
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
-    const newCard = new Card(
-      {
-        name: formValue.place_title,
-        link: formValue.place_link,
-      },
-      "#card",
-      ".card",
-      handleCardClick
+    cardList.addItemFirst(
+      createCardElement(formValue.place_title, formValue.place_link)
     );
-    cardList.addItemFirst(newCard.getCardElement());
   }
 };
-
-const handleCardClick = (ev) => {
-  const openedPopupWithImage = new PopupWithImage(".popup_type_picture", ev);
-  openedPopupWithImage.openPopup();
-  openedPopupWithImage.setEventListeners();
-};
+const openedPopupWithImage = new PopupWithImage(".popup_type_picture");
+openedPopupWithImage.setEventListeners();
 
 const cardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(item, "#card", ".card", handleCardClick);
-      const cardElement = card.getCardElement();
-      cardList.addItem(cardElement);
+      cardList.addItem(createCardElement(item.name, item.link));
     },
   },
   cardListSection
@@ -72,18 +83,20 @@ formValidAdd.enableValidation();
 const openedPopupEdit = new PopupWithForm(".popup_type_edit", submitFormEdit);
 openedPopupEdit.setEventListeners();
 const user = new UserInfo({
-  name: nameProfile.textContent,
-  userJob: jobProfile.textContent,
-});
-
-editButton.addEventListener("click", () => {
-  openedPopupEdit.openPopup();
-  nameInput.value = user.getUserInfo().userName;
-  jobInput.value = user.getUserInfo().userJob;
+  name: nameProfile,
+  userJob: jobProfile,
 });
 
 const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
 openedPopupAdd.setEventListeners();
+
+editButton.addEventListener("click", () => {
+  openedPopupEdit.open();
+  const userInfo = user.getUserInfo();
+  nameInput.value = userInfo.userName;
+  jobInput.value = userInfo.userJob;
+});
+
 addButton.addEventListener("click", () => {
-  openedPopupAdd.openPopup();
+  openedPopupAdd.open();
 });
