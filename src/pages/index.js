@@ -29,12 +29,7 @@ const submitFormEdit = (formValues) => {
 };
 
 const handleCardClick = (name, imgLink) => {
-  openedPopupWithImage.open(
-    popupPictureImg,
-    popupPictureCaption,
-    name,
-    imgLink
-  );
+  openedPopupWithImage.open(name, imgLink);
 };
 
 const createCardElement = (name, link) => {
@@ -58,7 +53,11 @@ const submitFormAdd = (formValue) => {
     );
   }
 };
-const openedPopupWithImage = new PopupWithImage(".popup_type_picture");
+const openedPopupWithImage = new PopupWithImage(
+  ".popup_type_picture",
+  popupPictureImg,
+  popupPictureCaption
+);
 openedPopupWithImage.setEventListeners();
 
 const cardList = new Section(
@@ -91,10 +90,10 @@ const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
 openedPopupAdd.setEventListeners();
 
 editButton.addEventListener("click", () => {
-  openedPopupEdit.open();
   const userInfo = user.getUserInfo();
   nameInput.value = userInfo.userName;
   jobInput.value = userInfo.userJob;
+  openedPopupEdit.open();
 });
 
 addButton.addEventListener("click", () => {
