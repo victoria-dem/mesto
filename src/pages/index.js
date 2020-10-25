@@ -28,10 +28,6 @@ const submitFormEdit = (formValues) => {
   }
 };
 
-const handleCardClick = (name, imgLink) => {
-  openedPopupWithImage.open(name, imgLink);
-};
-
 const createCardElement = (name, link) => {
   const newCard = new Card(
     {
@@ -40,7 +36,9 @@ const createCardElement = (name, link) => {
     },
     "#card",
     ".card",
-    handleCardClick
+    (name, imgLink) => {
+      openedPopupWithImage.open(name, imgLink);
+    }
   );
   return newCard.getCardElement();
 };

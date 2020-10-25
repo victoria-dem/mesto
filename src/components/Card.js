@@ -16,18 +16,18 @@ export default class Card {
 
   _setEventListeners() {
     this._element
-      .querySelector(".button_type_like")
-      .addEventListener("click", () => {
+      .querySelector('.button_type_like')
+      .addEventListener('click', () => {
         this._handleLikeButton();
       });
     this._element
-      .querySelector(".button_type_delete")
-      .addEventListener("click", () => {
+      .querySelector('.button_type_delete')
+      .addEventListener('click', () => {
         this._handleDeleteCard();
       });
     this._element
-      .querySelector(".card__image")
-      .addEventListener("click", (ev) => {
+      .querySelector('.card__image')
+      .addEventListener('click', (ev) => {
         this._handleCardClick(this._text, this._imgLink);
       });
   }
@@ -39,14 +39,14 @@ export default class Card {
 
   _handleLikeButton() {
     this._element
-      .querySelector(".button_type_like")
-      .classList.toggle("button_pressed_like");
+      .querySelector('.button_type_like')
+      .classList.toggle('button_pressed_like');
   }
 
   _generateCardContent() {
     this._element = this._getTemplate();
-    this._element.querySelector(".card__item-title").textContent = this._text;
-    const cardImg = this._element.querySelector(".card__image");
+    this._element.querySelector('.card__item-title').textContent = this._text;
+    const cardImg = this._element.querySelector('.card__image');
     cardImg.src = this._imgLink;
     cardImg.alt = this._text;
     return this._element;

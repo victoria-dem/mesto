@@ -3,6 +3,7 @@ export default class UserInfo {
     this._nameProfileElement = data.name;
     this._jobProfileElement = data.userJob;
   }
+
   getUserInfo() {
     return {
       userName: this._nameProfileElement.textContent,
