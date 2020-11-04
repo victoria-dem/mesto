@@ -1,16 +1,20 @@
 export default class Card {
   constructor(
     data,
+    // profileName,
     templateSelector,
     elementSelector,
     handleCardClick,
     handleLikeClick,
     handleDeleteClick
   ) {
+    // this.data = data;
+    // this.profileName = profileName;
     this._imgLink = data.link;
     this._text = data.name;
-    this._id = data.id;
+    this._id = data._id;
     this._likes = data.likes;
+    this._ownerName = data.owner.name;
     this._templateSelector = templateSelector;
     this._elementSelector = elementSelector;
     this._handleCardClick = handleCardClick;
@@ -67,7 +71,7 @@ export default class Card {
       .classList.toggle("button_pressed_like");
   }
 
-  _generateCardContent() {
+  _generateCardContent(profileName) {
     this._element = this._getTemplate();
     this._element.querySelector(".card__item-title").textContent = this._text;
     this._element.querySelector(
@@ -76,12 +80,15 @@ export default class Card {
     const cardImg = this._element.querySelector(".card__image");
     cardImg.src = this._imgLink;
     cardImg.alt = this._text;
+    if (profileName === this._ownerName) {
+      console.log(this._ownerName);
+    }
     this._toggleLikeButton();
     return this._element;
   }
 
-  getCardElement() {
-    const cardElement1 = this._generateCardContent();
+  getCardElement(profileName) {
+    const cardElement1 = this._generateCardContent(profileName);
     this._setEventListeners();
     return cardElement1;
   }

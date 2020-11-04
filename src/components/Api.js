@@ -63,6 +63,9 @@ export default class Api {
         console.log(err);
       });
   }
+  getAllInfoForPage() {
+    return Promise.all([this.getUserData(), this.getInitialCards()]);
+  }
 
   patchUserData(name, about) {
     return fetch(`${this.baseUrl}/users/me`, {

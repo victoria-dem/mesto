@@ -5,8 +5,8 @@ export default class Section {
     this._container = containerSelector;
   }
 
-  renderItems(items) {
-    items.forEach((item) => this._renderer(item));
+  renderItems(items, profileName) {
+    items.forEach((item) => this._renderer(item, profileName));
   }
 
   addItem(element) {

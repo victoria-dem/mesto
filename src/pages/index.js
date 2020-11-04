@@ -54,14 +54,9 @@ const submitFormAdd = (formValue) => {
   }
 };
 
-const createCardElement = (name, link, id, likes) => {
+const createCardElement = (data, profileName) => {
   const newCard = new Card(
-    {
-      name,
-      link,
-      id,
-      likes,
-    },
+    data,
     "#card",
     ".card",
     (name, imgLink) => {
@@ -72,7 +67,7 @@ const createCardElement = (name, link, id, likes) => {
       openedPopupWithConfirmation.open();
     }
   );
-  return newCard.getCardElement();
+  return newCard.getCardElement(profileName);
 };
 
 const openedPopupWithImage = new PopupWithImage(
@@ -84,10 +79,8 @@ openedPopupWithImage.setEventListeners();
 
 const cardList = new Section(
   {
-    renderer: (item) => {
-      cardList.addItem(
-        createCardElement(item.name, item.link, item.id, item.likes)
-      );
+    renderer: (item, profileName) => {
+      cardList.addItem(createCardElement(item, profileName));
     },
   },
   cardListSection
@@ -121,8 +114,16 @@ function renderUserData(userData) {
   pictureProfile.src = userData.avatar;
 }
 
-api.getUserData().then((res) => renderUserData(res));
-api.getInitialCards().then((res) => cardList.renderItems(res));
+api.getAllInfoForPage().then((res) => {
+  renderUserData(res[0]);
+  // console.log(res[0].name);
+  cardList.renderItems(res[1], res[0].name);
+});
+
+// api.getUserData().then((res) => renderUserData(res));
+// api.getInitialCards().then((res) => {
+//   cardList.renderItems(res);
+// });
 
 editButton.addEventListener("click", () => {
   const userInfo = user.getUserInfo();
