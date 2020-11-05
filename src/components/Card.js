@@ -1,15 +1,12 @@
 export default class Card {
   constructor(
     data,
-    // profileName,
     templateSelector,
     elementSelector,
     handleCardClick,
     handleLikeClick,
     handleDeleteClick
   ) {
-    // this.data = data;
-    // this.profileName = profileName;
     this._imgLink = data.link;
     this._text = data.name;
     this._id = data._id;
@@ -81,7 +78,9 @@ export default class Card {
     cardImg.src = this._imgLink;
     cardImg.alt = this._text;
     if (profileName === this._ownerName) {
-      console.log(this._ownerName);
+      this._element
+        .querySelector(".button_type_delete")
+        .classList.add("button_visible");
     }
     this._toggleLikeButton();
     return this._element;
@@ -91,5 +90,6 @@ export default class Card {
     const cardElement1 = this._generateCardContent(profileName);
     this._setEventListeners();
     return cardElement1;
+    console.log(this._id);
   }
 }

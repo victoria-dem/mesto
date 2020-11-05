@@ -46,13 +46,19 @@ const submitFormEdit = (formValues) => {
 const submitFormAdd = (formValue) => {
   const buttonSubmit = formAdd.querySelector(".form__button");
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
-    api.postNewCard(formValue.place_title, formValue.place_link).then((res) => {
-      cardList.addItemFirst(
-        createCardElement(res.name, res.link, res.id, res.likes)
-      );
-    });
+    api
+      .getAllInfoForAddedCard(formValue.place_title, formValue.place_link)
+      .then((res) => {
+        cardList.addItemFirst(createCardElement(res[1], res[0].name));
+      });
   }
 };
+
+const openedPopupWithConfirmation = new PopupWithConfirmation(
+  ".popup_type_confirmation"
+);
+
+openedPopupWithConfirmation.setEventListeners();
 
 const createCardElement = (data, profileName) => {
   const newCard = new Card(
@@ -64,7 +70,14 @@ const createCardElement = (data, profileName) => {
     },
     (id, likes) => {},
     (id) => {
-      openedPopupWithConfirmation.open();
+      // conslole.log(data._id);
+      // openedPopupWithConfirmation.getSubmitHandler((data._id) => {
+      //   api.deleteCard(data._id).then((res) => {
+      //     this._element.remove();
+      //     this._element = null;
+      //   });
+      // });
+      // openedPopupWithConfirmation.open();
     }
   );
   return newCard.getCardElement(profileName);
@@ -103,21 +116,16 @@ const user = new UserInfo({
 const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
 openedPopupAdd.setEventListeners();
 
-const openedPopupWithConfirmation = new PopupWithConfirmation(
-  ".popup_type_confirmation"
-);
-
-openedPopupWithConfirmation.setEventListeners();
-
 function renderUserData(userData) {
   user.setUserInfo(userData.name, userData.about);
   pictureProfile.src = userData.avatar;
 }
 
 api.getAllInfoForPage().then((res) => {
-  renderUserData(res[0]);
+  const [userData, cardsData] = res;
+  renderUserData(userData);
   // console.log(res[0].name);
-  cardList.renderItems(res[1], res[0].name);
+  cardList.renderItems(cardsData, userData.name);
 });
 
 // api.getUserData().then((res) => renderUserData(res));

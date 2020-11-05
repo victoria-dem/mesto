@@ -67,6 +67,10 @@ export default class Api {
     return Promise.all([this.getUserData(), this.getInitialCards()]);
   }
 
+  getAllInfoForAddedCard(name, link) {
+    return Promise.all([this.getUserData(), this.postNewCard(name, link)]);
+  }
+
   patchUserData(name, about) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
@@ -98,6 +102,25 @@ export default class Api {
         name: name,
         link: link,
       }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  deleteCard(id) {
+    return fetch(`${this.baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this.headers,
     })
       .then((res) => {
         if (res.ok) {
