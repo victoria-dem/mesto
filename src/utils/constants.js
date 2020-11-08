@@ -6,10 +6,14 @@ export const popupEdit = document.querySelector(".popup_type_edit");
 export const nameInput = popupEdit.querySelector(".form__text_profile_title");
 export const jobInput = popupEdit.querySelector(".form__text_profile_subtitle");
 export const formEdit = popupEdit.querySelector(".form");
+export const formEditImg = document
+  .querySelector(".popup_type_profileimg")
+  .querySelector(".form");
 export const profile = document.querySelector(".profile");
 export const nameProfile = profile.querySelector(".profile__title");
 export const jobProfile = profile.querySelector(".profile__subtitle");
 export const pictureProfile = profile.querySelector(".profile__img");
+export const buttonProfile = profile.querySelector(".profile__img-button");
 export const editButton = profile.querySelector(".button_type_edit");
 export const addButton = profile.querySelector(".button_type_add");
 export const popupAdd = document.querySelector(".popup_type_add");

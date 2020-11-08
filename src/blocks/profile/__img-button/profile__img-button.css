@@ -1,0 +1,10 @@
+.profile__img-button {
+  position: relative;
+  padding: 0;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.profile__img-button:focus {
+  outline: none;
+}
