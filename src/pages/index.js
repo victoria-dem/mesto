@@ -1,4 +1,4 @@
-// import "./index.css";
+import "./index.css";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -33,47 +33,80 @@ const api = new Api({
   },
 });
 
-const submitFormEdit = (formValues) => {
+const submitFormEdit = (formValues, close) => {
   const buttonSubmit = formEdit.querySelector(".form__button");
+  let previousValueButtonSubmit = buttonSubmit.textContent;
+  buttonSubmit.textContent = "Сохранение...";
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
     api
       .patchUserData(formValues.profile_title, formValues.profile_subtitle)
       .then((res) => {
         user.setUserInfo(res.name, res.about);
+        buttonSubmit.textContent = previousValueButtonSubmit;
+        close();
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 };
 
-const submitFormAdd = (formValue) => {
+const submitFormAdd = (formValue, close) => {
   const buttonSubmit = formAdd.querySelector(".form__button");
+  let previousValueButtonSubmit = buttonSubmit.textContent;
+  buttonSubmit.textContent = "Сохранение...";
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
     api
       .getAllInfoForAddedCard(formValue.place_title, formValue.place_link)
       .then((res) => {
         cardList.addItemFirst(createCardElement(res[1], res[0]._id));
+        buttonSubmit.textContent = previousValueButtonSubmit;
+        close();
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 };
 
 function handleLikeClick(element, likes, id, likeButton, likeNumbers) {
   if (likeButton.classList.contains("button_pressed_like")) {
-    api.deleteCardLike(id).then((res) => {
-      likeButton.classList.remove("button_pressed_like");
-      likeNumbers.textContent = res.likes.length;
-    });
+    api
+      .deleteCardLike(id)
+      .then((res) => {
+        likeButton.classList.remove("button_pressed_like");
+        likeNumbers.textContent = res.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   } else {
-    api.putCardLike(id).then((res) => {
-      likeButton.classList.add("button_pressed_like");
-      likeNumbers.textContent = res.likes.length;
-    });
+    api
+      .putCardLike(id)
+      .then((res) => {
+        likeButton.classList.add("button_pressed_like");
+        likeNumbers.textContent = res.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
 
 function handleDeleteClick(id, deleteCardFromScreen) {
-  openedPopupWithConfirmation.getSubmitHandler(() => {
-    api.deleteCard(id).then(() => {
-      deleteCardFromScreen();
-    });
+  openedPopupWithConfirmation.getSubmitHandler((buttonSubmit, close) => {
+    const previousValueButtonSubmit = buttonSubmit.textContent;
+    buttonSubmit.textContent = "Сохранение...";
+    api
+      .deleteCard(id)
+      .then(() => {
+        deleteCardFromScreen();
+        buttonSubmit.textContent = previousValueButtonSubmit;
+        close();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
   openedPopupWithConfirmation.open();
 }
@@ -118,14 +151,22 @@ const openedPopupWithImage = new PopupWithImage(
   popupPictureImg,
   popupPictureCaption
 );
-openedPopupWithImage.setEventListeners();
 
-const submitFormEditImg = (formValues) => {
+const submitFormEditImg = (formValues, close) => {
   const buttonSubmit = formEditImg.querySelector(".form__button");
+  let previousValueButtonSubmit = buttonSubmit.textContent;
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
-    api.patchUserProfileImg(formValues.profile__img).then((res) => {
-      pictureProfile.src = res.avatar;
-    });
+    buttonSubmit.textContent = "Сохранение...";
+    api
+      .patchUserProfileImg(formValues.profile__img)
+      .then((res) => {
+        pictureProfile.src = res.avatar;
+        buttonSubmit.textContent = previousValueButtonSubmit;
+        close();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 };
 
@@ -133,12 +174,10 @@ const openedPopupEditProfileImg = new PopupWithForm(
   ".popup_type_profileimg",
   submitFormEditImg
 );
-openedPopupEditProfileImg.setEventListeners();
 
 const openedPopupWithConfirmation = new PopupWithConfirmation(
   ".popup_type_confirmation"
 );
-openedPopupWithConfirmation.setEventListeners();
 
 const openedPopupEdit = new PopupWithForm(".popup_type_edit", submitFormEdit);
 openedPopupEdit.setEventListeners();
@@ -146,21 +185,29 @@ const user = new UserInfo({
   name: nameProfile,
   userJob: jobProfile,
 });
-// const user = new UserInfo();
 
 const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
-openedPopupAdd.setEventListeners();
 
 function renderUserData(userData) {
   user.setUserInfo(userData.name, userData.about);
   pictureProfile.src = userData.avatar;
 }
 
-api.getAllInfoForPage().then((res) => {
-  const [userData, cardsData] = res;
-  renderUserData(userData);
-  cardList.renderItems(cardsData, userData._id);
-});
+api
+  .getAllInfoForPage()
+  .then((res) => {
+    const [userData, cardsData] = res;
+    renderUserData(userData);
+    cardList.renderItems(cardsData, userData._id);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+openedPopupAdd.setEventListeners();
+openedPopupWithConfirmation.setEventListeners();
+openedPopupEditProfileImg.setEventListeners();
+openedPopupWithImage.setEventListeners();
 
 editButton.addEventListener("click", () => {
   const userInfo = user.getUserInfo();

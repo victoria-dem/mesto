@@ -1,32 +1,8 @@
-// import { jobProfile, nameProfile, pictureProfile } from "../utils/constants";
-
 export default class Api {
   constructor(options) {
     this.baseUrl = options.baseUrl;
     this.headers = options.headers;
   }
-
-  // getInitialCards() {
-  //
-  // }
-
-  // _getData(url) {
-  //   return fetch(url, {
-  //     headers: this.headers,
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       return Promise.reject(`Ошибка: ${res.status}`);
-  //     })
-  //     .then((res) => {
-  //       return res;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
 
   getUserData() {
     return fetch(`${this.baseUrl}/users/me`, {
@@ -64,24 +40,6 @@ export default class Api {
       });
   }
 
-  // getOneCard(id) {
-  //   return fetch(`${this.baseUrl}/cards/${id}`, {
-  //     headers: this.headers,
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       return Promise.reject(`Ошибка: ${res.status}`);
-  //     })
-  //     .then((res) => {
-  //       return res;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
-
   getAllInfoForPage() {
     return Promise.all([this.getUserData(), this.getInitialCards()]);
   }
@@ -89,28 +47,6 @@ export default class Api {
   getAllInfoForAddedCard(name, link) {
     return Promise.all([this.getUserData(), this.postNewCard(name, link)]);
   }
-
-  // getAllInfoAboutLike(id) {
-  //   return Promise.all([this.getUserData(), this.getCardLikes(id)]);
-  // }
-  //
-  // getCardLikes(id) {
-  //   return fetch(`${this.baseUrl}/cards/${id}`, {
-  //     headers: this.headers,
-  //   })
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //       return Promise.reject(`Ошибка: ${res.status}`);
-  //     })
-  //     .then((res) => {
-  //       return res;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
 
   patchUserData(name, about) {
     return fetch(`${this.baseUrl}/users/me`, {
@@ -129,9 +65,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -152,9 +85,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -171,9 +101,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -190,9 +117,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -208,9 +132,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 
@@ -227,9 +148,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
   patchUserProfileImg(link) {
@@ -248,9 +166,6 @@ export default class Api {
       })
       .then((res) => {
         return res;
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 }
