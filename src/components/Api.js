@@ -4,40 +4,23 @@ export default class Api {
     this.headers = options.headers;
   }
 
+  _getResponceData(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(new Error(`Ошибка : ${res.status}`));
+  }
+
   getUserData() {
     return fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(this._getResponceData);
   }
 
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       headers: this.headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then(this._getResponceData);
   }
 
   getAllInfoForPage() {
@@ -56,16 +39,7 @@ export default class Api {
         name: name,
         about: about,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
+    }).then(this._getResponceData);
   }
 
   postNewCard(name, link) {
@@ -76,80 +50,36 @@ export default class Api {
         name: name,
         link: link,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
+    }).then(this._getResponceData);
   }
 
   deleteCard(id) {
     return fetch(`${this.baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: this.headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
+    }).then(this._getResponceData);
   }
 
   putCardLike(id) {
     return fetch(`${this.baseUrl}/cards/likes/${id}`, {
       method: "PUT",
       headers: this.headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
+    }).then(this._getResponceData);
   }
 
-  getCardLike(id) {
-    return fetch(`${this.baseUrl}/cards/likes/${id}`, {
-      headers: this.headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
-  }
+  // getCardLike(id) {
+  //   return fetch(`${this.baseUrl}/cards/likes/${id}`, {
+  //     headers: this.headers,
+  //   }).then(this._getResponceData);
+  // }
 
   deleteCardLike(id) {
     return fetch(`${this.baseUrl}/cards/likes/${id}`, {
       method: "DELETE",
       headers: this.headers,
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
+    }).then(this._getResponceData);
   }
+
   patchUserProfileImg(link) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: "PATCH",
@@ -157,15 +87,6 @@ export default class Api {
       body: JSON.stringify({
         avatar: link,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
-      .then((res) => {
-        return res;
-      });
+    }).then(this._getResponceData);
   }
 }

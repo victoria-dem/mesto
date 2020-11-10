@@ -24,6 +24,9 @@ import {
   buttonProfile,
   formEditImg,
 } from "../utils/constants.js";
+import { renderLoading } from "../utils/utils.js";
+
+let buttonText = "";
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-17",
@@ -33,16 +36,16 @@ const api = new Api({
   },
 });
 
-const submitFormEdit = (formValues, close) => {
+const submitFormEdit = (formValues, close, popupContainer) => {
   const buttonSubmit = formEdit.querySelector(".form__button");
-  let previousValueButtonSubmit = buttonSubmit.textContent;
-  buttonSubmit.textContent = "Сохранение...";
+  buttonText = renderLoading(buttonSubmit, true);
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
     api
       .patchUserData(formValues.profile_title, formValues.profile_subtitle)
       .then((res) => {
         user.setUserInfo(res.name, res.about);
-        buttonSubmit.textContent = previousValueButtonSubmit;
+        renderLoading(buttonSubmit, false, buttonText);
+        popupContainer.querySelector(".form").reset();
         close();
       })
       .catch((err) => {
@@ -51,16 +54,16 @@ const submitFormEdit = (formValues, close) => {
   }
 };
 
-const submitFormAdd = (formValue, close) => {
+const submitFormAdd = (formValue, close, popupContainer) => {
   const buttonSubmit = formAdd.querySelector(".form__button");
-  let previousValueButtonSubmit = buttonSubmit.textContent;
-  buttonSubmit.textContent = "Сохранение...";
+  buttonText = renderLoading(buttonSubmit, true);
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
     api
       .getAllInfoForAddedCard(formValue.place_title, formValue.place_link)
       .then((res) => {
         cardList.addItemFirst(createCardElement(res[1], res[0]._id));
-        buttonSubmit.textContent = previousValueButtonSubmit;
+        renderLoading(buttonSubmit, false, buttonText);
+        popupContainer.querySelector(".form").reset();
         close();
       })
       .catch((err) => {
@@ -69,13 +72,20 @@ const submitFormAdd = (formValue, close) => {
   }
 };
 
-function handleLikeClick(element, likes, id, likeButton, likeNumbers) {
+function handleLikeClick(
+  element,
+  likes,
+  id,
+  likeButton,
+  countLikes,
+  buttonLikeColor
+) {
   if (likeButton.classList.contains("button_pressed_like")) {
     api
       .deleteCardLike(id)
       .then((res) => {
-        likeButton.classList.remove("button_pressed_like");
-        likeNumbers.textContent = res.likes.length;
+        buttonLikeColor(false);
+        countLikes(res.likes);
       })
       .catch((err) => {
         console.log(err);
@@ -84,8 +94,8 @@ function handleLikeClick(element, likes, id, likeButton, likeNumbers) {
     api
       .putCardLike(id)
       .then((res) => {
-        likeButton.classList.add("button_pressed_like");
-        likeNumbers.textContent = res.likes.length;
+        buttonLikeColor(true);
+        countLikes(res.likes);
       })
       .catch((err) => {
         console.log(err);
@@ -95,13 +105,12 @@ function handleLikeClick(element, likes, id, likeButton, likeNumbers) {
 
 function handleDeleteClick(id, deleteCardFromScreen) {
   openedPopupWithConfirmation.getSubmitHandler((buttonSubmit, close) => {
-    const previousValueButtonSubmit = buttonSubmit.textContent;
-    buttonSubmit.textContent = "Сохранение...";
+    buttonText = renderLoading(buttonSubmit, true);
     api
       .deleteCard(id)
-      .then(() => {
+      .then((res) => {
         deleteCardFromScreen();
-        buttonSubmit.textContent = previousValueButtonSubmit;
+        renderLoading(buttonSubmit, false, buttonText);
         close();
       })
       .catch((err) => {
@@ -154,14 +163,13 @@ const openedPopupWithImage = new PopupWithImage(
 
 const submitFormEditImg = (formValues, close) => {
   const buttonSubmit = formEditImg.querySelector(".form__button");
-  let previousValueButtonSubmit = buttonSubmit.textContent;
   if (!buttonSubmit.classList.contains("form__button_disabled")) {
-    buttonSubmit.textContent = "Сохранение...";
+    buttonText = renderLoading(buttonSubmit, true);
     api
       .patchUserProfileImg(formValues.profile__img)
       .then((res) => {
-        pictureProfile.src = res.avatar;
-        buttonSubmit.textContent = previousValueButtonSubmit;
+        user.setUserAvatar(pictureProfile, res.avatar);
+        renderLoading(buttonSubmit, false, buttonText);
         close();
       })
       .catch((err) => {
@@ -190,7 +198,7 @@ const openedPopupAdd = new PopupWithForm(".popup_type_add", submitFormAdd);
 
 function renderUserData(userData) {
   user.setUserInfo(userData.name, userData.about);
-  pictureProfile.src = userData.avatar;
+  user.setUserAvatar(pictureProfile, userData.avatar);
 }
 
 api

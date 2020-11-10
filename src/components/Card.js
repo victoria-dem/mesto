@@ -18,6 +18,8 @@ export default class Card {
     this._handleLikeClick = handleLikeClick;
     this._handleDeleteClick = handleDeleteClick;
     this.deleteCardFromScreen = this.deleteCardFromScreen.bind(this);
+    this.countLikes = this.countLikes.bind(this);
+    this.buttonLikeColor = this.buttonLikeColor.bind(this);
   }
 
   _getTemplate() {
@@ -32,13 +34,23 @@ export default class Card {
     this._element = null;
   }
 
+  buttonLikeColor(isColor) {
+    isColor
+      ? this._buttonLike.classList.add("button_pressed_like")
+      : this._buttonLike.classList.remove("button_pressed_like");
+  }
+
+  countLikes(likes) {
+    this._likeNumbers = this._element.querySelector(".card__item-numbers");
+    this._likeNumbers.textContent = likes.length;
+  }
+
   _generateCardContent(profileId) {
     this._element = this._getTemplate();
     this._buttonLike = this._element.querySelector(".button_type_like");
     this._cardName = this._element.querySelector(".card__item-title");
     this._cardName.textContent = this._text;
     this._likeNumbers = this._element.querySelector(".card__item-numbers");
-    this._likeNumbers.textContent = this._likes.length;
     const cardImg = this._element.querySelector(".card__image");
     cardImg.src = this._imgLink;
     cardImg.alt = this._text;
@@ -47,15 +59,12 @@ export default class Card {
         .querySelector(".button_type_delete")
         .classList.add("button_visible");
     }
+    this.countLikes(this._likes);
     if (this._likes.some((item) => item._id === profileId)) {
-      this._buttonLike.classList.add("button_pressed_like");
+      this.buttonLikeColor(true);
     }
     return this._element;
   }
-
-  // setNewLikes(likes) {
-  //   this._likes = likes;
-  // }
 
   _setEventListeners() {
     this._element
@@ -66,7 +75,8 @@ export default class Card {
           this._likes,
           this._id,
           this._buttonLike,
-          this._likeNumbers
+          this.countLikes,
+          this.buttonLikeColor
         );
       });
     this._element
