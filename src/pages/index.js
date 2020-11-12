@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -228,23 +228,6 @@ addButton.addEventListener("click", () => {
   openedPopupAdd.open();
 });
 
-buttonProfile.addEventListener("mouseover", () => {
-  buttonProfile
-    .querySelector(".profile__img")
-    .classList.add("profile__img_hover");
-  buttonProfile
-    .querySelector(".profile__edit-icon")
-    .classList.add("profile__edit-icon_hover");
-});
-
-buttonProfile.addEventListener("mouseout", () => {
-  buttonProfile
-    .querySelector(".profile__img")
-    .classList.remove("profile__img_hover");
-  buttonProfile
-    .querySelector(".profile__edit-icon")
-    .classList.remove("profile__edit-icon_hover");
-});
 buttonProfile.addEventListener("click", () => {
   openedPopupEditProfileImg.open();
 });

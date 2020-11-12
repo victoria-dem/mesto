@@ -1,11 +1,6 @@
 .profile__edit-icon {
-  position: absolute;
   height: 26px;
   width: 26px;
-  opacity: 0;
+  opacity: 1;
   background: transparent;
-  right: 50px;
-  top: 50px;
-  z-index: 1;
-  transition: opacity 0.4s ease-out;
 }
